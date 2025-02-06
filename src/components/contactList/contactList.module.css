@@ -1,0 +1,4 @@
+.noItemAvailable {
+    color: var(--textColors-textPlaceholder);
+    padding: 8px;
+}

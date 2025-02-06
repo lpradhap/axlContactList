@@ -1,0 +1,31 @@
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 8px;
+    cursor: pointer;
+    align-items: center;
+    border-width: 1px 0px 1px 0px;
+    border-style: solid;
+    border-color: var(--borderColors-borderMedium, #e4e5e8);
+    background: var(--backgroundColors-element, #ffffff);
+    font-weight: 500;
+    color: var(--textColors-textLight, #5a6d80);
+    transition: all 0.2s;
+}
+
+.wrapper:hover {
+    background: var(--backgroundColors-secondaryHover, #f2f5f7);
+}
+
+.wrapper:active {
+    background: var(--backgroundColors-secondaryActive, #e6ecef);
+}
+
+.wrapper img {
+    transition: all 0.2s;
+}
+
+.wrapper img.isHidden {
+    transform: rotate(90deg);
+}

@@ -1,0 +1,36 @@
+:root {
+  font-family: "Roboto", serif;
+  font-weight: 400;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --primaryColors-primary200: #f4f1fd;
+  --textColors-textPrimary: #6b46ef;
+  --textColors-text: #20374b;
+  --textColors-textLight: #5a6d80;
+  --textColors-textPlaceholder: #8e9aa5;
+  --backgroundColors-element: #ffffff;
+  --backgroundColors-contentBackground: #ffffff;
+  --backgroundColors-secondaryHover: #f2f5f7;
+  --backgroundColors-secondaryActive: #e6ecef;
+  --borderColors-borderMedium: #e4e5e8;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  color: #444;
+  font-size: 14px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+input {
+  font-family: "Roboto", serif;
+}
