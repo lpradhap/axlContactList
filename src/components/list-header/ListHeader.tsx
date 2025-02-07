@@ -1,5 +1,6 @@
 import imgChevronRight from "@/assets/chevronRight.svg";
 import Styles from "./ListHeader.module.css";
+import { memo } from "react";
 
 type ListHeaderProps = {
   /** label to be displayed on the header */
@@ -15,7 +16,7 @@ type ListHeaderProps = {
 /**
  * ListHeader component that displays a header with a toggle button.
  */
-export default function ListHeader({
+function ListHeader({
   label,
   isSectionVisible = true,
   onToggleChange,
@@ -38,3 +39,11 @@ export default function ListHeader({
     </div>
   );
 }
+
+export default memo(ListHeader, (prevProps, nextProps) => {
+  return (
+    prevProps.label === nextProps.label &&
+    prevProps?.isSectionVisible === nextProps?.isSectionVisible &&
+    prevProps.onToggleChange === nextProps.onToggleChange
+  );
+});

@@ -1,6 +1,7 @@
 import { Student } from "@/types/student";
 import defaultImg from "@/assets/student.png";
 import styles from "./ContactListItem.module.css";
+import { memo } from "react";
 
 type ContactListItemProps = {
   /** student object to display */
@@ -23,7 +24,7 @@ type ContactListItemProps = {
  * Contact List Item Component
  * A reusable contact list item component.
  */
-export default function ContactListItem({
+function ContactListItem({
   student,
   variant = "standard",
   isEnabled = true,
@@ -37,21 +38,28 @@ export default function ContactListItem({
     .join(" ");
 
   return (
-    <>
-      <div className={wrapperClasses} data-testid="contact-list-item">
-        <img
-          src={student.thumbnail ? student.thumbnail : defaultImg}
-          alt={student.name}
-          data-testid="student-thumbnail"
-        />
-        <div className={styles.info}>
-          <div className={styles.title}>{student.name}</div>
+    <div className={wrapperClasses} data-testid="contact-list-item">
+      <img
+        src={student.thumbnail ? student.thumbnail : defaultImg}
+        alt={student.name}
+        data-testid="student-thumbnail"
+        loading="lazy"
+      />
+      <div className={styles.info}>
+        <div className={styles.title}>{student.name}</div>
 
-          {variant === "email" && (
-            <div className={styles.email}>{student.email}</div>
-          )}
-        </div>
+        {variant === "email" && (
+          <div className={styles.email}>{student.email}</div>
+        )}
       </div>
-    </>
+    </div>
   );
 }
+
+export default memo(ContactListItem, (prevProps, nextProps) => {
+  return (
+    prevProps.student.id === nextProps.student.id &&
+    prevProps.variant === nextProps.variant &&
+    prevProps.isEnabled === nextProps.isEnabled
+  );
+});

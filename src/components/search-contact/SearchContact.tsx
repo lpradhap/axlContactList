@@ -5,6 +5,10 @@ import { StudentData as StudentList } from "@/data";
 import { Student } from "@/types/student";
 import Styles from "./SearchContact.module.css";
 
+/**
+ * SearchContact component
+ * A component that allows users to search for students by name and shows attended and absent students
+ */
 export default function SearchContact() {
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [students, setStudents] = useState<Student[]>([]);
@@ -31,14 +35,14 @@ export default function SearchContact() {
     [searchTerm, students]
   );
 
+  /** function to update searchTerm on searchbox input onchange */
+  const handleSearchChange = (val: string) => {
+    setSearchTerm(val);
+  };
+
   useEffect(() => {
     setStudents(StudentList);
   }, []);
-
-  /** function to update searchTerm on searchbox input onchange */
-  function handleSearchChange(event: React.ChangeEvent<HTMLInputElement>) {
-    setSearchTerm(event.target.value);
-  }
 
   return (
     <div className={Styles.wrapper}>

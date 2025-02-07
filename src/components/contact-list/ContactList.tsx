@@ -2,10 +2,10 @@ import { Student } from "@/types/student";
 import styles from "./contactList.module.css";
 import ContactListItem from "@/components/contact-list-item/ContactListItem";
 import ListHeader from "@/components/list-header/ListHeader";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 
 type ContactListProps = {
-  /** List of student objects to display in the contact list. */
+  /** List of student objects to display in the  list. */
   list: Student[];
 
   /** Label to display in the header section. */
@@ -24,25 +24,14 @@ export default function ContactList({
   showHeader = true,
   headerLabel,
 }: ContactListProps) {
-  const [isListVisible, setIsListVisible] = useState(true);
+  const [isListVisible, setIsListVisible] = useState<boolean>(true);
 
   /**
    * Toggles the visibility of the student list.
    */
-  function handleToggleChange() {
-    setIsListVisible(!isListVisible);
-  }
-
-  const NoStudentFound = () => (
-    <div className={styles.noItemAvailable}>No students found</div>
-  );
-
-  const StudentList = ({ list }: { list: Student[] }) =>
-    list.map((student) => (
-      <div key={student.id}>
-        <ContactListItem student={student} variant="email" isEnabled={false} />
-      </div>
-    ));
+  const handleToggleChange = useCallback(() => {
+    setIsListVisible((prevIsListVisible) => !prevIsListVisible);
+  }, []);
 
   return (
     <>
@@ -55,7 +44,19 @@ export default function ContactList({
       )}
       {isListVisible && (
         <div>
-          {list.length === 0 ? <NoStudentFound /> : <StudentList list={list} />}
+          {list.length === 0 ? (
+            <div className={styles.noItemAvailable}>No students found</div>
+          ) : (
+            list.map((student) => (
+              <div key={student.id}>
+                <ContactListItem
+                  student={student}
+                  variant="email"
+                  isEnabled={false}
+                />
+              </div>
+            ))
+          )}
         </div>
       )}
     </>
