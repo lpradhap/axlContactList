@@ -1,5 +1,5 @@
 import SearchIcon from "@/assets/search.svg";
-import styles from "./searchBox.module.css";
+import styles from "./SearchBox.module.css";
 
 type SearchBoxProps = {
   /** value for input field */

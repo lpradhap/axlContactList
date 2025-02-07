@@ -1,4 +1,4 @@
-import SearchContact from "@/components/searchContact/searchContact";
+import SearchContact from "@/components/search-contact/SearchContact";
 
 function App() {
   return (

@@ -1,5 +1,5 @@
 import imgChevronRight from "@/assets/chevronRight.svg";
-import Styles from "./listHeader.module.css";
+import Styles from "./ListHeader.module.css";
 
 type ListHeaderProps = {
   /** label to be displayed on the header */
@@ -29,7 +29,7 @@ export default function ListHeader({
       <div>{label}</div>
       <div>
         <img
-          className={`${!isSectionVisible ? "" : Styles.isHidden}`}
+          className={`${isSectionVisible ? Styles.isExpanded : ""}`}
           src={imgChevronRight}
           alt="search icon"
           data-testid="search-icon"

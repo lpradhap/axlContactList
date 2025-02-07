@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from "@testing-library/react";
-import SearchContact from "./searchContact";
+import SearchContact from "./SearchContact";
 import { StudentData } from "@/data";
 import { describe, it, vi } from "vitest";
 

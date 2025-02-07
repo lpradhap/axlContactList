@@ -26,6 +26,6 @@
     transition: all 0.2s;
 }
 
-.wrapper img.isHidden {
+.wrapper img.isExpanded {
     transform: rotate(90deg);
 }

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import ListHeader from '@/components/listHeader/listHeader';
+import ListHeader from '@/components/list-header/ListHeader';
 
 const meta: Meta<typeof ListHeader> = {
     component: ListHeader,

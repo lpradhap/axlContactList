@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from "@testing-library/react";
-import SearchBox from "./searchBox";
+import SearchBox from "./SearchBox";
 import { vi } from "vitest";
 describe("SearchBox", () => {
   it("renders all required elements", () => {

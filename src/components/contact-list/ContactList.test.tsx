@@ -1,6 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { render, screen, fireEvent } from "@testing-library/react";
-import ContactList from "./contactList";
+import ContactList from "./ContactList";
 import { Student } from "@/types/student";
 
 describe("ContactList", () => {

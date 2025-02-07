@@ -1,7 +1,7 @@
 import { Student } from "@/types/student";
 import styles from "./contactList.module.css";
-import ContactListItem from "../contactListItem/contactListItem";
-import ListHeader from "../listHeader/listHeader";
+import ContactListItem from "@/components/contact-list-item/ContactListItem";
+import ListHeader from "@/components/list-header/ListHeader";
 import { useState } from "react";
 
 type ContactListProps = {
@@ -33,6 +33,17 @@ export default function ContactList({
     setIsListVisible(!isListVisible);
   }
 
+  const NoStudentFound = () => (
+    <div className={styles.noItemAvailable}>No students found</div>
+  );
+
+  const StudentList = ({ list }: { list: Student[] }) =>
+    list.map((student) => (
+      <div key={student.id}>
+        <ContactListItem student={student} variant="email" isEnabled={false} />
+      </div>
+    ));
+
   return (
     <>
       {showHeader && (
@@ -44,21 +55,7 @@ export default function ContactList({
       )}
       {isListVisible && (
         <div>
-          {list.length === 0 ? (
-            <div className={styles.noItemAvailable}>No students found</div>
-          ) : (
-            <>
-              {list.map((student) => (
-                <div key={student.id}>
-                  <ContactListItem
-                    student={student}
-                    variant="email"
-                    isEnabled={false}
-                  />
-                </div>
-              ))}
-            </>
-          )}
+          {list.length === 0 ? <NoStudentFound /> : <StudentList list={list} />}
         </div>
       )}
     </>

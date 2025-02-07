@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import contactListItem from '@/components/contactListItem/contactListItem';
+import contactListItem from '@/components/contact-list-item/ContactListItem';
 import { Student } from '@/types/student';
 
 const meta: Meta<typeof contactListItem> = {

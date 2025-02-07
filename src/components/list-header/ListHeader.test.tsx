@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from "@testing-library/react";
-import ListHeader from "./listHeader";
+import ListHeader from "./ListHeader";
 import { describe, it, vi } from "vitest";
 
 describe("ListHeader", () => {
@@ -45,8 +45,8 @@ describe("ListHeader", () => {
 
     const icon = screen.getByTestId("search-icon");
 
-    // check if icon class does not contain isHidden
-    expect(icon.className).not.toContain("isHidden");
+    // check if icon class does contain isHidden
+    expect(icon.className).not.toContain("isExpanded");
   });
 
   it("should hide chevron icon down direction when section is visible", () => {
@@ -60,7 +60,7 @@ describe("ListHeader", () => {
 
     const icon = screen.getByTestId("search-icon");
 
-    // check if icon class contains isHidden
-    expect(icon.className).toContain("isHidden");
+    // check if icon class not contains isHidden
+    expect(icon.className).toContain("isExpanded");
   });
 });

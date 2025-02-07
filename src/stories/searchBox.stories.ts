@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import SearchBox from '@/components/searchBox/searchBox';
+import SearchBox from '@/components/search-box/SearchBox';
 
 const meta: Meta<typeof SearchBox> = {
     component: SearchBox,

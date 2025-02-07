@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { describe, it } from "vitest";
-import ContactListItem from "./contactListItem";
+import ContactListItem from "./ContactListItem";
 import { Student } from "@/types/student";
 import defaultImg from "@/assets/student.png";
 

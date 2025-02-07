@@ -1,6 +1,6 @@
 import { Student } from "@/types/student";
 import defaultImg from "@/assets/student.png";
-import styles from "./contactListItem.module.css";
+import styles from "./ContactListItem.module.css";
 
 type ContactListItemProps = {
   /** student object to display */
@@ -28,14 +28,17 @@ export default function ContactListItem({
   variant = "standard",
   isEnabled = true,
 }: ContactListItemProps) {
+  const wrapperClasses = [
+    styles.wrapper,
+    isEnabled && styles.enabled,
+    variant === "email" && styles.isEmail,
+  ]
+    .filter(Boolean)
+    .join(" ");
+
   return (
     <>
-      <div
-        className={`${styles.wrapper} ${isEnabled ? styles.enabled : ""} ${
-          variant === "email" ? styles.isEmail : ""
-        }`}
-        data-testid="contact-list-item"
-      >
+      <div className={wrapperClasses} data-testid="contact-list-item">
         <img
           src={student.thumbnail ? student.thumbnail : defaultImg}
           alt={student.name}
