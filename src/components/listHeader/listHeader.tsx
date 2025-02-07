@@ -21,13 +21,18 @@ export default function ListHeader({
   onToggleChange,
 }: ListHeaderProps) {
   return (
-    <div className={Styles.wrapper} onClick={onToggleChange}>
+    <div
+      className={Styles.wrapper}
+      onClick={onToggleChange}
+      data-testid="list-header"
+    >
       <div>{label}</div>
       <div>
         <img
           className={`${!isSectionVisible ? "" : Styles.isHidden}`}
           src={imgChevronRight}
           alt="search icon"
+          data-testid="search-icon"
         />
       </div>
     </div>

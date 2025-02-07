@@ -34,10 +34,12 @@ export default function ContactListItem({
         className={`${styles.wrapper} ${isEnabled ? styles.enabled : ""} ${
           variant === "email" ? styles.isEmail : ""
         }`}
+        data-testid="contact-list-item"
       >
         <img
           src={student.thumbnail ? student.thumbnail : defaultImg}
           alt={student.name}
+          data-testid="student-thumbnail"
         />
         <div className={styles.info}>
           <div className={styles.title}>{student.name}</div>

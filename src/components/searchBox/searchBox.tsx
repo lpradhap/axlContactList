@@ -22,9 +22,10 @@ export default function SearchBox({
   onChange,
 }: SearchBoxProps) {
   return (
-    <div className={`${styles.searchWrapper}`}>
-      <img src={SearchIcon} alt="search icon" />
+    <div className={`${styles.searchWrapper}`} data-testid="search-box">
+      <img src={SearchIcon} alt="search icon" data-testid="search-icon" />
       <input
+        data-testid="search-input"
         type="text"
         placeholder={placeholder}
         value={value}
